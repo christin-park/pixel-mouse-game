@@ -1,0 +1,23 @@
+/Assets/*/*.meta
+
+/Assets/*.meta
+
+/Library/*
+
+/Logs/*
+
+/Packages/*
+
+/ProjectSettings/*
+
+/UserSettings/*
+
+/Assets/animation/*
+
+/Assets/barrier/*
+
+/Assets/Scenes/*
+
+/Assets/TextMesh Pro/*
+
+

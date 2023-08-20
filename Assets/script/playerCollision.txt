@@ -1,0 +1,4 @@
+OnTriggerEnter2D -> mark Is Trigger
+
+OnCollisionEnter2D
+

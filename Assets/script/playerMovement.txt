@@ -1,0 +1,35 @@
+Vectors
+- https://docs.unity3d.com/ScriptReference/Vector2.html
+- private Vector2 moveVal; -> moveVal is variable of type Vector2, a struct
+- moveVal.x = -> set x component of vector
+- moveVal.Normalize(); -> sqrt(1^2 + 1^2) != 1, normalize vector so direction is shrunk so that its magnitude = 1
+- declaring a variable initializes its values to (0.0, 0.0)
+- Vector2 direction = new Vector2(horizontalVal, verticalVal);
+    - use of constructor, make new object of a class (csce 121 pain)
+    - new Vector2 object created named "direction" initializing the x component to "horizontalVal" and y component to "verticalVal"
+    - the same as:
+      Vector2 direction = new Vector2();
+      direction.x = horizontalVal;
+      direction.y = verticalVal;
+
+GetAxis
+- public static float GetAxis(string axisName);
+- to view axisName options, Edit > Project Settings > Input Manager
+- diff axes help represent the different input devices
+- Input.GetAxisRaw("Horizontal"); tells Unity to find input value associated with horizontal axis
+
+Digital signals
+- https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html
+- returns -1 (left/down), 0 (not moving), 1 (right/up)
+
+Analog signals
+- https://docs.unity3d.com/ScriptReference/Input.GetAxis.html
+- returns continuous range from -1 to 1
+
+Rigidbody2D
+- https://docs.unity3d.com/ScriptReference/Rigidbody2D.html
+
+Transform
+- https://docs.unity3d.com/ScriptReference/Transform.html
+- transforms position, rotation, and scale
+- transform.up reference to the y axis (green axis)
