@@ -23,7 +23,7 @@ public class playingGame : MonoBehaviour {
 
     //vars
     public int currPlayer = 0;
-    string leaderboardTitle = "Rank           Title          Map Time       Average Time   ";
+    string leaderboardTitle = "Rank           Player          Map Time" + "\n";
 
     
     void Awake() {
@@ -62,10 +62,10 @@ public class playingGame : MonoBehaviour {
         readPlayerData.calculateBestTime(editArrayPlayerData);
         
         //FOR DEBUGGINGGGGGGG
-        for (int i = 0; i < readPlayerData.arrayPlayerData.Length; i++) {
+        for (int i = 0; i < editArrayPlayerData.Length; i++) {
         string rowValues = "";
-            for (int j = 0; j < readPlayerData.arrayPlayerData[i].Length; j++) {
-                    rowValues += readPlayerData.arrayPlayerData[i][j] + " ";
+            for (int j = 0; j < editArrayPlayerData[i].Length; j++) {
+                    rowValues += editArrayPlayerData[i][j] + " ";
                 }
             Debug.Log(rowValues);
         }
@@ -73,15 +73,17 @@ public class playingGame : MonoBehaviour {
 
 
         //display leaderboard
-        leaderboard.SetActive(true);
-
-        
-        // for (int i = 0; i < readPlayerData.numPlayers; ++i) {
-        //     string formatLeaderboard = $"{leaderboardTitle}\n" +
-        //                                 $"{(i - 1), -7} {editArrayPlayerData[i], -7} {editArrayPlayerData[selectLevel.level][i], -7} {editArrayPlayerData[3][i], -7}";
+        leaderboardText.text = $"{leaderboardTitle}\n";
             
-        //     leaderboardText.text += formatLeaderboard + "\n";
-        // }
+        for (int i = 0; i < readPlayerData.numPlayers; ++i) {
+            string formatLeaderboard =
+                                        //rank          player                          map time                                                
+                                        $"{(i + 1), -15:D2} {readPlayerData.playerNames[i], -14} {editArrayPlayerData[i][selectLevel.level - 1], -14:F2}"  ;
+            
+            leaderboardText.text += formatLeaderboard + "\n";
+        }
+
+        leaderboard.SetActive(true);
     }
 
     //button functions

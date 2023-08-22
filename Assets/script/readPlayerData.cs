@@ -98,21 +98,22 @@ public class readPlayerData : MonoBehaviour {
         //     }
 
         //     float[] temp = arrayPlayerData[i];
-        //     arrayPlayerData[i] = arrayPlayerData[bestPlayerIndex];
+        //     arrayPlayerData[si] = arrayPlayerData[bestPlayerIndex];
         //     arrayPlayerData[bestPlayerIndex] = temp;
         // }   
         for (int i = 0; i < numPlayers; ++i) {
-        int bestPlayerIndex = i;
-        for (int j = i + 1; j < numPlayers; ++j) {
-            if (arrayPlayerData[j][playerData - 1] < arrayPlayerData[bestPlayerIndex][playerData - 1]) {
-                bestPlayerIndex = j;
-            }
+            int bestPlayerIndex = i;
+            for (int j = i + 1; j < numPlayers; ++j) {
+                
+                if (arrayPlayerData[j][playerData - 1] < arrayPlayerData[bestPlayerIndex][playerData - 1]) {
+                    bestPlayerIndex = j;
+                }
         }
         
-        float[] temp = arrayPlayerData[i];
-        arrayPlayerData[i] = arrayPlayerData[bestPlayerIndex];
-        arrayPlayerData[bestPlayerIndex] = temp;
-    }   
+            float[] temp = arrayPlayerData[i];
+            arrayPlayerData[i] = arrayPlayerData[bestPlayerIndex];
+            arrayPlayerData[bestPlayerIndex] = temp;
+        }   
     }
 
 
