@@ -16,6 +16,7 @@ public class playerCollision : MonoBehaviour {
 
     public playerMovement playerMovement;
     public playingGame playingGame;
+    public demo demo;
 
     public bool cheeseTouch = false;
 
@@ -37,8 +38,22 @@ public class playerCollision : MonoBehaviour {
             cheeseTouch = true;
         }
         else if (collision.gameObject.CompareTag("maze-barrier")) {
-            transform.position = new Vector2(-339f, 226.2f);
+            transform.position = playerMovement.spawnPoint;
             playerAudioSource.PlayOneShot(mazeWallSound);
+        }
+        else if (collision.gameObject.CompareTag("maze-wall")) {
+            if (!playerMovement.isJumping) {
+                transform.position = playerMovement.spawnPoint;
+                playerAudioSource.PlayOneShot(mazeWallSound);
+            }    
+        }
+        else if (collision.gameObject.CompareTag("maze-cheese-demo")) {
+            mazeCheese.SetActive(false);
+            playerAudioSource.PlayOneShot(mazeCheeseSound);
+            playerMovement.isMoving = false;
+            Debug.Log(playerMovement.timer);
+            cheeseTouch = true;
+            demo.finishDemo();
         }
     }
 
